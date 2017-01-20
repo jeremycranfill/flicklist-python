@@ -11,12 +11,14 @@ class Index(webapp2.RequestHandler):
 
     def get(self):
         # choose a movie by invoking our new function
-        movie = self.getRandomMovie()
+        movie1 = self.getRandomMovie()
         movie2 = self.getRandomMovie()
+        while movie1 == movie2:
+            movie2 = self.getRandomMovie()
 
         # build the response string
         content = "<h1>Movie of the Day</h1>"
-        content += "<p>" + movie + "</p>"
+        content += "<p>" + movie1 + "</p>"
         content += "<h1>Movie of Tommorrow</h1>"
         content += "<p>" + movie2 + "</p>"
 
